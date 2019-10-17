@@ -1,0 +1,23 @@
+estudante
+
+http://localhost:3030/estudante_all => listar todos (index)
+
+http://localhost:3030/estudante?estuante=Simiao listar um (show)
+
+http://localhost:3030/estudante criar todos (store)
+
+http://localhost:3030/editar_estudante/5da4f6ffb625f7be33c0ba3a update
+
+http://localhost:3030/apagar_estudante/5da502c9b9072ec1afeade32
+
+funcionario
+
+
+
+
+
+{
+	"name":"ola",
+	"email":"osvaldo@calaudia",
+	"data_agendamento":"2010-12-12"
+}
