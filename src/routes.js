@@ -6,6 +6,7 @@ const FuncionarioControllers = require('./controllers/FuncionarioControllers')
 const AgendamentoControllers = require('./controllers/AgendamentoControllers')
 const AtendimentoControllers = require('./controllers/AtendimentoControllers')
 const LevantarDocControllers = require('./controllers/LevantarDocControllers')
+const LoginControllers = require('./controllers/LoginControllers')
 
 const routes = express.Router();
 const upload = multer(uploadConfig);
@@ -41,5 +42,7 @@ routes.get('/levantar_doc', LevantarDocControllers.show)
 routes.get('/levantar_doc_all', LevantarDocControllers.index)
 routes.put('/editar_levantar_doc/:id', LevantarDocControllers.update)
 routes.delete('/apagar_levantar_doc/:id', LevantarDocControllers.delete)
+
+routes.post('/funcionario_login', LoginControllers.login)
 
 module.exports = routes;

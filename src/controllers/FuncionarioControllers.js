@@ -6,14 +6,14 @@ module.exports = {
         const { filename } = req.file;
         const { name, email, funcao, sector,senha } = req.body;
         var senha_ = senha;
-        var senha_hash = crypto.createHash('md5').update(senha_).digest('hex');
+        var password = crypto.createHash('md5').update(senha_).digest('hex');
         const funcionario = await Funcionario.updateOne({ _id: id }, {
             img: filename,
             name: name,
             email: email,
             funcao: funcao,
             sector: sector,
-            senha_hash:senha_hash
+            password:password
         }, function (err, affected, resp) {
 
         });
@@ -46,7 +46,7 @@ module.exports = {
         const { name, email, funcao, sector ,senha} = req.body;
         let funcionario = await Funcionario.findOne({ email })
         var senha_ = senha;
-        var senha_hash = crypto.createHash('md5').update(senha_).digest('hex');
+        var password = crypto.createHash('md5').update(senha_).digest('hex');
         if (funcionario) {
             res.status(400).json({ status: "fail", message: "o usuario ja exite", data: null });
         } else {
@@ -56,7 +56,7 @@ module.exports = {
                 email,
                 funcao,
                 sector,
-                senha_hash
+                password
             });
 
         }

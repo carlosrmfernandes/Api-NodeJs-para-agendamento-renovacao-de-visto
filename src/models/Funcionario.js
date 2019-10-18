@@ -6,6 +6,6 @@ const FuncionarioSchema= new mongoose.Schema({
     email:String,
     funcao:String,
     sector:String,
-    senha_hash:String, 
+    password:String, 
 })
 module.exports= mongoose.model('funcionario',FuncionarioSchema);
