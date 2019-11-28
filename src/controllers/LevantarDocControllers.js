@@ -17,12 +17,13 @@ module.exports = {
     async delete(req, res) {
         const { id } = req.params;
         await LevantarDoc.deleteOne({ _id: id });
-        res.redirect('/levantar_doc_all');
+        res.status(200).json({ status: "Success", message: "Levantamento Removido com sucesso " });
     },
 
     async show(req, res) {
-        const { rne } = req.query;
-        const levantarDocs = await LevantarDoc.find({ rne: rne });
+        // const { rne } = req.query;
+        const { id } = req.params;
+        const levantarDocs = await LevantarDoc.find({ _id: id });
         res.status(200).json({ status: "Success", message: " ", data: levantarDocs });
 
     },

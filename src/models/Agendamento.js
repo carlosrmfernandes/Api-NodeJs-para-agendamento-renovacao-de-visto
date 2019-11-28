@@ -1,7 +1,10 @@
 const mongoose= require('mongoose');
 
 const AgendamentoSchema= new mongoose.Schema({
-    name:String,
+    name: {
+        type: String,
+        required: [true, "obrigatonjsbfks"]
+    },
     email:String,
     data_agendamento:String,
     funcionario_id:{

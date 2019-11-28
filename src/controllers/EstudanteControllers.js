@@ -19,13 +19,14 @@ module.exports = {
     async delete(req, res) {
         const { id } = req.params;
         await Estudante.deleteOne({ _id: id });
-        res.redirect('/estudantes_all');
+        res.status(200).json({ status: "Success", message: "Estudante Removido com sucesso " });
     },
 
     async show(req, res) {
 
-        const { estuante } = req.query;
-        const estuantes = await Estudante.find({ name: estuante });
+        // const { estuante } = req.query;
+        const { id } = req.params;
+        const estuantes = await Estudante.find({ _id: id});
         res.status(200).json({ status: "Success", message: " ", data: estuantes });
 
     },

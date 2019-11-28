@@ -18,12 +18,14 @@ module.exports = {
     async delete(req, res) {
         const { id } = req.params;
         await Agendamento.deleteOne({ _id: id });
-        res.redirect('/agendar_all');
+        res.status(200).json({ status: "Success", message: "Agendamento Removido com sucesso " });
     },
 
     async show(req, res) {
-        const { agendamento } = req.query;
-        const agendamentos = await Agendamento.find({ name: agendamento });
+        // const { agendamento } = req.query;
+        // const agendamentos = await Agendamento.find({ name: agendamento });
+        const { id } = req.params;
+        const agendamentos = await Agendamento.find({ _id: id });
         res.status(200).json({ status: "Success", message: " ", data: agendamentos });
 
     },
@@ -39,7 +41,6 @@ module.exports = {
         const { funcionario_id } = req.headers;
         
         let agendamento = await Agendamento.findOne({ email })
-
 
         if (agendamento) {
             res.status(400).json({ status: "fail", message: "Agendamento ja foi feito", data: null });
